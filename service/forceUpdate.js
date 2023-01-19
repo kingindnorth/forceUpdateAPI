@@ -26,24 +26,14 @@ module.exports.forceUpdate = async(platform, appversion) => {
               }
           }
           })
-        console.log(versions,"hello")
+        console.log(versions,"versions")
+        // logger.info(`version from service | ${versions}`)
+
         let result = []
         versions.forEach(val=>{
             result.push(val.dataValues)
         })
         console.log(result,"result")
-        // logger.info(`version from service | ${versions}`)
-        //if number of rows fetched from db is zero
-        if(versions.length === 0){
-          //find one row with non critical update
-          const noUpdateResult = await table.findOne({
-            where:{
-              type: 1
-            }
-          })
-          console.log(`no update result from service | ${noUpdateResult}`)
-          return noUpdateResult
-        }
         return result
       }catch(error){
         console.log(error,"from service")

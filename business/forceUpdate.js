@@ -4,17 +4,17 @@ exports.forceUpdate = async(platform,appversion) => {
     console.log(`force-update from business`)
     try{
         const result = await User.forceUpdate(platform,appversion)
-        console.log(`result from business | ${result[0].dataValues}`)
+        console.log(result)
         if(!result){
             console.log(`unable to get result in business`)
             return 
         }
         //if no update result returned (no update required)
-        if(result.length === 1){
+        if(result.length === 0){
             console.log('no update required');
             return {
-                update: result.name,
-                message: result.message
+                update: `version:${appversion}`,
+                message: "No update required"
             }
         }
         let force_update = false
