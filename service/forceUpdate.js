@@ -1,5 +1,6 @@
 const db = require("../models/index")
-const version_androids = db.model
+const version_androids = db.android
+const version_ios = db.ios
 const Sequelize = require("sequelize")
 
 module.exports.forceUpdate = async(platform, appversion) => {
@@ -11,7 +12,7 @@ module.exports.forceUpdate = async(platform, appversion) => {
           table = version_androids
         }
         else if(platform === "ios"){
-          table = versionIos
+          table = version_ios
         }
         if(table === ""){
           console.log(`no platform detected`)

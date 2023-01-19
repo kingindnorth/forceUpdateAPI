@@ -10,6 +10,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.model = require("../models/versionAndroid") (sequelize, Sequelize)
+db.android = require("../models/versionAndroid") (sequelize, Sequelize)
+db.ios = require("../models/versionIos") (sequelize, Sequelize)
 
 module.exports = db
