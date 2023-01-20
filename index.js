@@ -10,7 +10,7 @@ app.use(express.json())
 
 app.use("/",require("./controllers/forceUpdate").forceUpdate)
 
-const PORT = 3222
+const PORT = 3221
 
 app.listen(PORT,()=>{
     console.log(`server started at port: ${PORT}`)
